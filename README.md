@@ -11,7 +11,7 @@
 
 - 2015.07.18 
 
-    - 放弃使用express框架，接入koa框架，koa是Es6 Generator方法，所以有启用主文件时要加上--harmony: 
+    - 放弃使用express框架，接入koa框架(http://koa.bootcss.com/)，koa是Es6 Generator方法，所以有启用主文件时要加上--harmony: 
     
     	<code>node --harmony app.js</code>
     	
