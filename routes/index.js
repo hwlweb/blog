@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+"use strict";
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+var router = require('koa-router');
+var home = require('../controls/home');
 
-module.exports = router;
+module.exports = function (app) {
+    app.use(router(app));
+
+    app.get('/',home);
+}
+
+
+
