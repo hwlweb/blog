@@ -28,5 +28,9 @@
     
     	<code>node --harmony dispatch.js</code>
     	
+    - mongo 配置：使用可视化工具（Robomongo）进行管理，前提是先启动本的mongo服务：sudo ./mongod
     
+- 2015.07.19
+    
+    - 
 

@@ -25,7 +25,7 @@ app.use(function *errorHandler (next) {
 });
 
 /* static server */
-app.use(Static(Path.resolve(__dirname, './views')));
+app.use(Static(Path.resolve(__dirname, './public')));
 
 /* template engine */
 var dust = require('dustjs-helpers');

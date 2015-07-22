@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = function *() {
-    //this.redirect('/');
+    yield this.render('/home');
 };
