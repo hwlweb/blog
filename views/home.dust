@@ -1,3 +1,9 @@
 {>"views/layout.dust" /}
 
 {<title}niko's blog-list{/title}
+
+{<body}
+<div class="container blog-main">
+	dddd
+</div>
+{/body}
