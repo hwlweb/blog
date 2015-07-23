@@ -30,7 +30,7 @@
     	
     - mongo 配置：使用可视化工具（Robomongo）进行管理，前提是先启动本的mongo服务：sudo ./mongod
     
-- 2015.07.19
+- 2015.07.23
     
-    - 
+    - 成功使用layout.dust,抽取头，尾模板，因为koa对dust的支持还不是很完美，layout引用时加上views文件地址，示例："views/layout.dust"
 

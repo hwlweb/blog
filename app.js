@@ -9,23 +9,11 @@ var Router = require('./routes');
 var app = koa();
 
 /* error handler */
-app.use(function *errorHandler (next) {
-    try {
-        yield next;
-    } catch(e) {
-        // TODO 记录日志
-        console.error(e.stack);
-        if(config.env === 'dev') {
-            console.error('出错啦!!!!!!!!!!');
-            this.body = e.stack;
-        }else{
-            this.body = 'server error';
-        }
-    }
-});
+var logger = require('koa-logger');
+app.use(logger());
 
 /* static server */
-app.use(Static(Path.resolve(__dirname, './public')));
+app.use(Static(Path.resolve(__dirname, './static')));
 
 /* template engine */
 var dust = require('dustjs-helpers');
