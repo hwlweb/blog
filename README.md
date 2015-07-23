@@ -33,4 +33,32 @@
 - 2015.07.23
     
     - 成功使用layout.dust,抽取头，尾模板，因为koa对dust的支持还不是很完美，layout引用时加上views文件地址，示例："views/layout.dust"
-
+    
+    - 增加add,edit功能 
+    
+    - 踩得几个坑
+       
+       - koa-mongo, 中间件都是挂在app上面，所以在control里面要把app传给module，route也是中间件，所以这里面的this是指向app的
+      
+       - thunkify模块，可以去掉后面的回调，之后就可以把查询的结果直接return回去
+       
+       <code>
+           var collection = app.mongo.db('niko_wolf_blog').collection('article');
+           
+           var findOne = thunkify(collection.findOne.bind(collection));
+       
+           return yield findOne(obj);
+       </code>
+       
+       - redirect 前面不能用yield,而render前面可以，因为redirect 返回的是一个undefine,理论上来讲，yield可以出现在任何function前面
+       
+       - 获取:id参数的值，this.params.id，但直用来用来查询却不可以，比如{_id:id}，因为mongodb接收的是一个objectId,而不是一个字符串，所以
+       要引用mongo模块的objectId对象
+       
+       <code>
+       var ObjectId = require('mongodb').ObjectID;
+       
+       var id = new ObjectId(this.params.id);
+       
+       var post = yield articleModules.findOne({_id:id}, app);
+       </code>

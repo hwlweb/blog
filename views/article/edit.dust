@@ -1,0 +1,10 @@
+{>"views/layout.dust" /}
+
+{<body}
+  <h1>Edit Post</h1>
+  <form action="/post/{post._id}" method="post">
+    <p><input type="text" name="title" value="{post.title}"></p>
+    <p><textarea name="body">{post.body}</textarea></p>
+    <p><input type="submit" value="Save"></p>
+  </form>
+{/body}

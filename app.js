@@ -5,6 +5,7 @@ var Path = require('path');
 var View = require('koa-views');       //模板解析
 var Static = require('koa-static');    //静态服务资源
 var Router = require('./routes');
+var Modules = require('./modules');
 
 var app = koa();
 
@@ -21,6 +22,11 @@ dust.config.whitespace = true; // 不压缩html代码
 app.use(View('./views', {
     default: 'dust'
 }));
+
+/* Modules */
+var mongo = require('koa-mongo');
+var mongoConfig = require('./config/mongo_server');
+app.use(mongo(mongoConfig.mongoServerConfig));
 
 /* route */
 Router(app);
