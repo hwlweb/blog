@@ -16,3 +16,33 @@ module.exports.findOne = function *(obj, app) {
 
     return yield findOne(obj);
 }
+
+module.exports.updateById = function *(idObj,postObj, app) {
+    var collection = app.mongo.db('niko_wolf_blog').collection('article');
+    var update = thunkify(collection.update.bind(collection));
+
+    yield update(idObj,postObj);
+}
+
+module.exports.show = function *(obj, app) {
+    var collection = app.mongo.db('niko_wolf_blog').collection('article');
+    var show = thunkify(collection.findOne.bind(collection));
+
+    return yield show(obj);
+}
+
+module.exports.list = function *(app) {
+    var collection = app.mongo.db('niko_wolf_blog').collection('article');
+    var postList = collection.find();
+    //这里需要把查询的结果，toArray一下，再把toArray方法thunkify一下才能正常运行
+    var list = thunkify(postList.toArray.bind(postList));
+
+    return yield list();
+}
+
+module.exports.remove = function *(obj, app) {
+    var collection = app.mongo.db('niko_wolf_blog').collection('article');
+    var remove = thunkify(collection.remove.bind(collection));
+
+    return yield remove(obj);
+}

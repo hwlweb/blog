@@ -62,3 +62,9 @@
        
        var post = yield articleModules.findOne({_id:id}, app);
        </code>
+       
+    - 2015.03.24
+    
+      - 完成文章的增、删、改，查，list功能
+      
+        - 坑：mongo的find功能需要toArray一下，因为toArray还是处在同步时期，所以需要把toArray方法trunkify一下转为异步
