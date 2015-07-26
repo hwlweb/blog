@@ -1,11 +1,11 @@
 {>"views/layout.dust" /}
 
 {<body}
-<h1>New Post</h1>
-<p>Create a new post.</p>
-<form action="/post" method="post">
-    <p><input type="text" placeholder="Title" name="title"></p>
-    <p><textarea placeholder="Contents" name="body"></textarea></p>
-    <p><input type="submit" value="Create"></p>
-</form>
+<div class="container">
+    <form action="/post" method="post">
+        <p><input type="text" name="title" class="form-control" placeholder="输入文章标题" /></p>
+        <p><textarea placeholder="输入文章正文" name="body" class="form-control" rows="25"></textarea></p>
+        <p><input type="submit" value="提交" class="btn btn-default btn-info" />  <a class="btn btn-default" href="/">取消</a></p>
+    </form>
+</div>
 {/body}

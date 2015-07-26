@@ -23,6 +23,7 @@
     "koa-favicon": "~1.2.0",
     "thunkify": "*",
     "koa-mongo": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "marked":"*"
   }
 }

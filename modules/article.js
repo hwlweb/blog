@@ -33,7 +33,7 @@ module.exports.show = function *(obj, app) {
 
 module.exports.list = function *(app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
-    var postList = collection.find();
+    var postList = collection.find().sort({created_at:-1});
     //这里需要把查询的结果，toArray一下，再把toArray方法thunkify一下才能正常运行
     var list = thunkify(postList.toArray.bind(postList));
 

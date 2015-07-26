@@ -1,11 +1,11 @@
 {>"views/layout.dust" /}
 
 {<body}
-  {post.body}
-  <h1>{post.title}</h1>
-  <p>{post.body}</p>
-  <ul>
-  	<li><a href="/post/{post._id}/edit">Edit post</a></li>
-  	<li><a href="/post/{post._id}/delete">Delete post</a></li>
-  </ul>
+  <div class="container">
+  	  <div class="btn-box">
+         <a href="/post/{post._id}/edit" class="btn">编辑</a> <a href="/post/{post._id}/delete" class="btn">删除</a>
+      </div>
+      <h1 class="article-title">{post.title}</h1>
+      <p>{post.body}</p>
+  </div>
 {/body}

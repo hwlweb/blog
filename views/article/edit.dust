@@ -1,10 +1,12 @@
 {>"views/layout.dust" /}
 
 {<body}
-  <h1>Edit Post</h1>
-  <form action="/post/{post._id}" method="post">
-    <p><input type="text" name="title" value="{post.title}"></p>
-    <p><textarea name="body">{post.body}</textarea></p>
-    <p><input type="submit" value="Save"></p>
-  </form>
+  <div class="container">
+      <form action="/post/{post._id}" method="post">
+        <p><input type="text" name="title" value="{post.title}" class="form-control" placeholder="输入文章标题"></p>
+        <p><textarea name="body" class="form-control" rows="25">{post.body}</textarea></p>
+        <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
+        <p><input type="submit" value="提交" class="btn btn-default btn-info" />  <a class="btn btn-default" href="/">取消</a></p>
+      </form>
+  </div>
 {/body}
