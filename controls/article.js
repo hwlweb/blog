@@ -2,9 +2,12 @@
 var parse = require('co-body');
 var articleModules = require('../modules/article');
 var ObjectId = require('mongodb').ObjectID;
+var Categories = require('../config/categories');
 
 module.exports.addArticle = function *addArticle() {
-    yield this.render('/article/add');
+    yield this.render('/article/add',{
+        categories: Categories
+    });
 };
 
 module.exports.create = function *create() {
@@ -14,6 +17,7 @@ module.exports.create = function *create() {
     post.modify_at = '';
 
     yield articleModules.insert(post, app);
+
     app.redirect('/');
 };
 
@@ -21,7 +25,10 @@ module.exports.edit = function *edit() {
     var app = this;
     var id = new ObjectId(this.params.id);
     var post = yield articleModules.findOne({_id:id}, app);
-    yield app.render('article/edit', { post: post });
+    yield app.render('article/edit', {
+        post: post,
+        categories: Categories
+    });
 };
 
 module.exports.update = function *update() {
@@ -30,7 +37,7 @@ module.exports.update = function *update() {
     var post = yield parse(this);
     var modifyTime = new Date;
 
-    yield articleModules.updateById({_id:id},{$set:{title:post.title,body:post.body,modify_at:modifyTime}}, app);
+    yield articleModules.updateById({_id:id},{$set:{title:post.title,body:post.body,created_at:modifyTime,cate:post.cate}}, app);
     app.redirect('/post/' + id);
 };
 

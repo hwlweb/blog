@@ -3,9 +3,24 @@
 {<body}
 <div class="container">
     <form action="/post" method="post">
+    	<input type="hidden" name="cate" value="" id="cate" />
         <p><input type="text" name="title" class="form-control" placeholder="输入文章标题" /></p>
+        <p>
+        {#categories}
+            <a href="javascript:;" data-name="{name}" class="btn btn-default" data-role="cate">{name}</a>
+        {/categories}
+        	<span class="text-danger cate-error">* 请选择类目</span>
+        </p>
         <p><textarea placeholder="输入文章正文" name="body" class="form-control" rows="25"></textarea></p>
-        <p><input type="submit" value="提交" class="btn btn-default btn-info" />  <a class="btn btn-default" href="/">取消</a></p>
+        <p><input type="submit" value="提交" class="btn btn-default btn-info" id="submit-btn"/>  <a class="btn btn-default" href="/">取消</a></p>
     </form>
 </div>
 {/body}
+
+{<scripts}
+	<script>
+		seajs.use('/js/post.js',function(Post){
+			Post.init();
+		});
+	</script>
+{/scripts}

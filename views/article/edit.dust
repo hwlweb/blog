@@ -3,10 +3,26 @@
 {<body}
   <div class="container">
       <form action="/post/{post._id}" method="post">
+        <input type="hidden" name="cate" value="{post.cate}" id="cate" />
         <p><input type="text" name="title" value="{post.title}" class="form-control" placeholder="输入文章标题"></p>
+        <p>
+        {#categories}
+            <a href="javascript:;" data-name="{name}" class="btn btn-default{@eq key=name value="{post.cate}"} btn-info{/eq}" data-role="cate">{name}</a>
+        {/categories}
+            <span class="text-danger cate-error">* 请选择类目</span>
+        </p>
         <p><textarea name="body" class="form-control" rows="25">{post.body}</textarea></p>
         <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
-        <p><input type="submit" value="提交" class="btn btn-default btn-info" />  <a class="btn btn-default" href="/">取消</a></p>
+        <p><input type="submit" value="提交" class="btn btn-default btn-info" id="submit-btn"/>  <a class="btn btn-default" href="/">取消</a></p>
       </form>
   </div>
 {/body}
+
+
+{<scripts}
+	<script>
+		seajs.use('/js/post.js',function(Post){
+			Post.init();
+		});
+	</script>
+{/scripts}

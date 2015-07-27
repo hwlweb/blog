@@ -3,6 +3,43 @@ var mongo = require('koa-mongo');
 var thunkify = require('thunkify');
 var marked = require('marked');
 
+var formart = function(postList){
+    if(postList.length > 0){
+        for(var i = 0; i < postList.length;i++){
+            var time = new Date( postList[i].created_at );
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            var day = time.getDate();
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            var date = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
+            postList[i].created_at = date;
+
+            var body = postList[i].body;
+            if(body){
+                postList[i].body = marked(body);
+            }
+        }
+    }else{
+        var time = new Date( postList.created_at );
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var day = time.getDate();
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        var date = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
+        postList.created_at = date;
+
+        var body = postList.body;
+        if(body){
+            postList.body = marked(body);
+        }
+    }
+
+};
+
 module.exports.insert = function *(obj, app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
     // 把collection的this指针包成一个临时的thunkify对象
@@ -28,8 +65,9 @@ module.exports.updateById = function *(idObj,postObj, app) {
 module.exports.show = function *(obj, app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
     var show = thunkify(collection.findOne.bind(collection));
-
-    return yield show(obj);
+    var showObj = yield show(obj);
+    formart(showObj);
+    return showObj;
 }
 
 module.exports.list = function *(app) {
@@ -39,21 +77,7 @@ module.exports.list = function *(app) {
 
     var list = thunkify(postList.toArray.bind(postList));
     var postList = yield list();
-    for(var i = 0; i < postList.length;i++){
-        var time = new Date( postList[i].created_at );
-        var year = time.getFullYear();
-        var month = time.getMonth() + 1;
-        var day = time.getDate();
-        var hour = time.getHours();
-        var minute = time.getMinutes();
-        var second = time.getSeconds();
-        var date = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
-        postList[i].created_at = date;
-
-        var body = postList[i].body;
-        postList[i].body = marked(body);
-        console.log(postList[i].body);
-    }
+    formart(postList);
     return postList;
 }
 
