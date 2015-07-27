@@ -2,7 +2,10 @@
 	<div class="container">
 		<ul class="nav-list">
 			<li class="">
-				<a href="/">首页</a>
+				<a href="/" class="current">首页</a>
+				{#categories}
+					<a href="{href}">{name}</a>
+				{/categories}
 			</li>
 		</ul>
 		<div class="navbar-right right-nav">

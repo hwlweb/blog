@@ -45,13 +45,13 @@ module.exports.detail = function *detail(id) {
     var app = this;
     var id = new ObjectId(this.params.id);
     var post = yield articleModules.show({_id:id}, app);
-    yield app.render('article/detail', { post: post });
+    yield app.render('article/detail', { post: post,categories: Categories });
 };
 
 module.exports.list = function *list() {
     var app = this;
     var postList = yield articleModules.list(app);
-    yield app.render('home', { posts: postList });
+    yield app.render('home', { posts: postList,categories: Categories });
 };
 
 module.exports.remove = function *remove(id) {
