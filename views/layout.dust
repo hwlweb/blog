@@ -27,5 +27,6 @@
     <!-- footer -->
     {+footer}{/footer}
 </body>
+<script src="/js/lib/marked.js"></script>
 {+scripts}{/scripts}
 </html>

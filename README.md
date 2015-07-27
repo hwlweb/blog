@@ -63,8 +63,12 @@
        var post = yield articleModules.findOne({_id:id}, app);
        </code>
        
-    - 2015.03.24
+    - 2015.07.24
     
       - 完成文章的增、删、改，查，list功能
       
         - 坑：mongo的find功能需要toArray一下，因为toArray还是处在同步时期，所以需要把toArray方法trunkify一下转为异步
+      
+    - 2015.07.27 
+    
+       - 增加marked编辑，dust模块解析的时候可以在输出参数上面加上{xxoo|s}可以对html进行转译，更多方法见Dust Helpers

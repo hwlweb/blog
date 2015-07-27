@@ -1,6 +1,7 @@
 "use strict";
 var mongo = require('koa-mongo');
 var thunkify = require('thunkify');
+var marked = require('marked');
 
 module.exports.insert = function *(obj, app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
@@ -35,9 +36,25 @@ module.exports.list = function *(app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
     var postList = collection.find().sort({created_at:-1});
     //这里需要把查询的结果，toArray一下，再把toArray方法thunkify一下才能正常运行
-    var list = thunkify(postList.toArray.bind(postList));
 
-    return yield list();
+    var list = thunkify(postList.toArray.bind(postList));
+    var postList = yield list();
+    for(var i = 0; i < postList.length;i++){
+        var time = new Date( postList[i].created_at );
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var day = time.getDate();
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        var date = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
+        postList[i].created_at = date;
+
+        var body = postList[i].body;
+        postList[i].body = marked(body);
+        console.log(postList[i].body);
+    }
+    return postList;
 }
 
 module.exports.remove = function *(obj, app) {
