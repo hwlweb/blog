@@ -59,7 +59,6 @@ module.exports.detail = function *detail(id) {
 module.exports.list = function *list() {
     var app = this;
     var postList = yield articleModules.list(app);
-    console.log(app.session);
     yield app.render('home', {
         posts: postList,
         categories: Categories,

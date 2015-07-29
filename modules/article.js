@@ -3,7 +3,7 @@ var mongo = require('koa-mongo');
 var thunkify = require('thunkify');
 var marked = require('marked');
 
-var formart = function(postList){
+var formart = function(postList,isList){
     if(postList.length > 0){
         for(var i = 0; i < postList.length;i++){
             var time = new Date( postList[i].created_at );
@@ -18,7 +18,11 @@ var formart = function(postList){
 
             var body = postList[i].body;
             if(body){
-                postList[i].body = marked(body);
+                if(isList){
+                    postList[i].body = marked(body).substring(0,300);
+                }else{
+                    postList[i].body = marked(body);
+                }
             }
         }
     }else{
@@ -77,7 +81,7 @@ module.exports.list = function *(app) {
 
     var list = thunkify(postList.toArray.bind(postList));
     var postList = yield list();
-    formart(postList);
+    formart(postList,true);
     return postList;
 }
 
