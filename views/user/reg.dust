@@ -4,20 +4,20 @@
 <div class="container">
 	<h1 class="user-title">注册</h1>
 	<div class="reg-form">
-		<form>
+		<form action="/regin" method="post">
 			<div class="form-group">
 				<label for="email1">邮箱</label>
-				<input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+				<input type="email" class="form-control" id="inputEmail1" placeholder="Email" name="email">
 				<p class="help-block">将会成为您唯一的登入名</p>
 			</div>
 			<div class="form-group">
 				<label for="nickname">昵称</label>
-				<input type="password" class="form-control" id="nickname">
+				<input type="text" class="form-control" id="nickname" name="nickname">
 				<p class="help-block">一旦设定，不可更改</p>
 			</div>
 			<div class="form-group">
 				<label for="password">密码</label>
-				<input type="password" class="form-control" id="password">
+				<input type="password" class="form-control" id="password" name="password">
 			</div>
 			<div class="form-group">
 				<label for="confirm-assword">确认密码</label>

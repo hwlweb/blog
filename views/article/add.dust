@@ -1,7 +1,7 @@
 {>"views/layout.dust" /}
 
 {<body}
-<div class="container">
+<div class="container body-wrap">
     <form action="/post" method="post">
     	<input type="hidden" name="cate" value="" id="cate" />
         <p><input type="text" name="title" class="form-control" placeholder="输入文章标题" /></p>

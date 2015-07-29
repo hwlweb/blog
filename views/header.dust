@@ -9,8 +9,10 @@
 			</li>
 		</ul>
 		<div class="navbar-right right-nav">
+			{?session.user}{session.nikoname},欢迎回来！<a href="/login_out">登出</a>{:else}
 			<a href="/reg">注册</a>
 			<a href="/login">登入</a>
+			{/session.user}
 		</div>
 	</div>
 </div>

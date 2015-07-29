@@ -5,8 +5,10 @@ var ObjectId = require('mongodb').ObjectID;
 var Categories = require('../config/categories');
 
 module.exports.addArticle = function *addArticle() {
+    var app = this;
     yield this.render('/article/add',{
-        categories: Categories
+        categories: Categories,
+        session:app.session
     });
 };
 
@@ -27,7 +29,8 @@ module.exports.edit = function *edit() {
     var post = yield articleModules.findOne({_id:id}, app);
     yield app.render('article/edit', {
         post: post,
-        categories: Categories
+        categories: Categories,
+        session:app.session
     });
 };
 
@@ -45,13 +48,24 @@ module.exports.detail = function *detail(id) {
     var app = this;
     var id = new ObjectId(this.params.id);
     var post = yield articleModules.show({_id:id}, app);
-    yield app.render('article/detail', { post: post,categories: Categories });
+    yield app.render('article/detail', {
+        post: post,
+        categories: Categories,
+        session:app.session,
+        user:app.session.user
+    });
 };
 
 module.exports.list = function *list() {
     var app = this;
     var postList = yield articleModules.list(app);
-    yield app.render('home', { posts: postList,categories: Categories });
+    console.log(app.session);
+    yield app.render('home', {
+        posts: postList,
+        categories: Categories,
+        session:app.session,
+        user:app.session.user
+    });
 };
 
 module.exports.remove = function *remove(id) {

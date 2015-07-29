@@ -5,7 +5,7 @@ var Path = require('path');
 var View = require('koa-views');       //模板解析
 var Static = require('koa-static');    //静态服务资源
 var Router = require('./routes');
-var Modules = require('./modules');
+var session = require('koa-session');
 
 var app = koa();
 
@@ -15,6 +15,10 @@ app.use(logger());
 
 /* static server */
 app.use(Static(Path.resolve(__dirname, './static')));
+
+/*session*/
+app.keys = ['hwl wolf'];
+app.use(session(app));
 
 /* template engine */
 var dust = require('dustjs-helpers');

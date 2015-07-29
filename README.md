@@ -74,3 +74,7 @@
        - 增加marked编辑，dust模块解析的时候可以在输出参数上面加上{xxoo|s}可以对html进行转译，更多方法见Dust Helpers
        
        - 增加文章分类功能
+       
+    - 2015.07.29
+    
+        - 增加koa-session 权限管理

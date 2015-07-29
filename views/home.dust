@@ -3,9 +3,10 @@
 {<title}niko's blog-list{/title}
 
 {<body}
-	<div class="container">
+	<div class="top-banner"></div>
+	<div class="container body-wrap">
 		<p style="display:none;">You have <strong>{posts.length}</strong> posts!</p>
-		<p><a href="/add_article">发表</a></p>
+		{@eq key=user value="hwlweb@163.com"}<p><a href="/add_article">发表</a></p>{/eq}
 		<div class="col-lg-10">
 			<ul id="posts" class="post-list">
 				{#posts}
