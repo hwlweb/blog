@@ -2,9 +2,9 @@
 	<div class="container">
 		<ul class="nav-list">
 			<li class="">
-				<a href="/" class="current">首页</a>
+				<a href="/" {@eq key=current value="home"}class="current"{/eq}>首页</a>
 				{#categories}
-					<a href="{href}">{name}</a>
+					<a href="{href}" {@eq key=current value="{name}"}class="current"{/eq}>{name}</a>
 				{/categories}
 			</li>
 		</ul>

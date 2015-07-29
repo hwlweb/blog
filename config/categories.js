@@ -2,18 +2,11 @@
 
 module.exports = [
     {
-        name: 'nodeJs学习笔记'
+        name: 'nodeJs',
+        href: '/category/nodeJs'
     },
     {
-        name: '前端笔记'
-    },
-    {
-        name: 'css技巧'
-    },
-    {
-        name: 'html5'
-    },
-    {
-        name: '无线开发'
+        name: '前端',
+        href: '/category/前端'
     }
 ];

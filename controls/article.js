@@ -63,7 +63,8 @@ module.exports.list = function *list() {
         posts: postList,
         categories: Categories,
         session:app.session,
-        user:app.session.user
+        user:app.session.user,
+        current: 'home'
     });
 };
 

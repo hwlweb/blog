@@ -1,0 +1,31 @@
+{>"views/layout.dust" /}
+
+{<title}niko's blog-list{/title}
+
+{<body}
+	<div class="container body-wrap">
+		<p style="display:none;">You have <strong>{posts.length}</strong> posts!</p>
+		<div class="col-lg-10">
+			<ul id="posts" class="post-list">
+				{#posts}
+				<li class="post-items">
+					<div class="post-main">
+						<h2 class="article-title"><a href="/post/{_id}">{title}</a></h2>
+						<div class="article-body">{body|s}</div>
+						<div class="article-footer"><span class="glyphicon glyphicon-time"></span> {created_at}<a href="/post/{_id}"><span class="glyphicon glyphicon-eye-open"></span> 阅读全文</a> <a href="#"><span class="glyphicon glyphicon-heart"></span> 评论</a></div>
+					</div>
+				</li>
+				{/posts}
+			</ul>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+{/body}
+
+{<scripts}
+	<script>
+		seajs.use('/js/home.js',function(Home){
+			Home.init();
+		})
+	</script>
+{/scripts}

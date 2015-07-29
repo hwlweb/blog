@@ -5,6 +5,7 @@ var home = require('../controls/home');
 var login = require('../controls/login');
 var Article = require('../controls/article');
 var User = require('../controls/user');
+var Category = require('../controls/category')
 
 module.exports = function (app) {
     app.use(router(app));
@@ -25,6 +26,9 @@ module.exports = function (app) {
     app.post('/regin', User.regIn);
     app.post('/loginIn', User.loginIn);
     app.get('/login_out', User.loginOut);
+
+    //category
+    app.get('/category/:category', Category.searchCategory);
 };
 
 
