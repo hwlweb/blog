@@ -3,12 +3,15 @@ var parse = require('co-body');
 var articleModules = require('../modules/article');
 var ObjectId = require('mongodb').ObjectID;
 var Categories = require('../config/categories');
+var ArticleCate = require('../config/article');
 
 module.exports.addArticle = function *addArticle() {
     var app = this;
     yield this.render('/article/add',{
         categories: Categories,
-        session:app.session
+        session:app.session,
+        current: 'post',
+        articleCate: ArticleCate
     });
 };
 
@@ -20,7 +23,7 @@ module.exports.create = function *create() {
 
     yield articleModules.insert(post, app);
 
-    app.redirect('/');
+    app.redirect('/post');
 };
 
 module.exports.edit = function *edit() {
@@ -30,7 +33,9 @@ module.exports.edit = function *edit() {
     yield app.render('article/edit', {
         post: post,
         categories: Categories,
-        session:app.session
+        session:app.session,
+        current: 'post',
+        articleCate: ArticleCate
     });
 };
 
@@ -59,12 +64,50 @@ module.exports.detail = function *detail(id) {
 module.exports.list = function *list() {
     var app = this;
     var postList = yield articleModules.list(app);
-    yield app.render('home', {
+    var path = this.url;
+
+    if(path == '/index' || path == '/'){
+        yield app.render('home', {
+            posts: postList,
+            categories: Categories,
+            session:app.session,
+            user:app.session.user,
+            current: 'index'
+        });
+    }else if(path == '/post'){
+        var article = this.params.article;
+        yield app.render('article', {
+            posts: postList,
+            categories: Categories,
+            session:app.session,
+            user:app.session.user,
+            current: 'post',
+            articleCate: ArticleCate,
+            article: article || 'all'
+        });
+    }else if(path == '/ask'){
+        yield app.render('ask', {
+            posts: postList,
+            categories: Categories,
+            session:app.session,
+            user:app.session.user,
+            current: 'ask'
+        });
+    }
+
+};
+
+module.exports.article = function *list() {
+    var app = this;
+    var postList = yield articleModules.list(app);
+    var article = this.params.category;
+    yield app.render('article', {
         posts: postList,
         categories: Categories,
         session:app.session,
         user:app.session.user,
-        current: 'home'
+        articleCate: ArticleCate,
+        article: article
     });
 };
 
@@ -72,6 +115,6 @@ module.exports.remove = function *remove(id) {
     var app = this;
     var id = new ObjectId(this.params.id);
     yield articleModules.remove({_id:id},app);
-    app.redirect('/');
+    app.redirect('/post');
 };
 

@@ -4,33 +4,23 @@
 
 {<body}
 	<div class="container body-wrap">
-		<div class="banner-wrap clearfix">
-			<div class="col-lg-3">
-				<div class="our-play">
-					<h2 class="home-title">新鲜事</h2>
-					<div class="play-list"></div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="top-banner"></div>
-			</div>
-			<div class="col-lg-3">
-				<div class="sub-banner">
-					<div style="margin-bottom:15px;"><img src="http://t10.baidu.com/it/u=2696906466,2879118173&fm=32&s=6ED03AD64F2057175A59566E0300E074&w=800&h=533&img.JPEG" height="165" width="100%"/></div>
-					<div><img src="http://t10.baidu.com/it/u=2696906466,2879118173&fm=32&s=6ED03AD64F2057175A59566E0300E074&w=800&h=533&img.JPEG" height="165" width="100%"/></div>
-				</div>
-			</div>
-		</div>
-
-
+	    <div class="search-bar-box clearfix">
+            <div class="input-group search-bar">
+                <input type="text" class="form-control" placeholder="输入文章名称">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+            <div class="creat-new navbar-right">{@eq key=user value="hwlweb@163.com"}<a href="/add_article" class="btn btn-info">发表</a>{/eq}</div>
+        </div>
 		<p style="display:none;">You have <strong>{posts.length}</strong> posts!</p>
 		<div class="col-lg-9">
 			<nav class="navbar navbar-default sub-nav">
 			  	<ul class="nav navbar-nav">
-					<li class="active"><a href="#">最新原创</a></li>
-					<li><a href="#">近期活跃</a></li>
-					<li><a href="#">精彩推荐</a></li>
-					<li><a href="#">全部</a></li>
+			  	    <li {@eq key=article value="all"}class="active"{/eq}><a href="/post">全部</a></li>
+			  	    {#articleCate}
+					<li {@eq key=article value="{name}"}class="active"{/eq}><a href="{href}">{name}</a></li>
+					{/articleCate}
 				</ul>
             </nav>
 

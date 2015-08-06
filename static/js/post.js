@@ -26,8 +26,15 @@ define(function (require, exports, module) {
         target.addClass('btn-info');
     }
 
+    var previewPost = function(ev){
+        var target = $(ev.target);
+        var html = target.val();
+        $('#article-main').html(marked(html));
+    }
+
     exports.init = function () {
         $('#submit-btn').on('click', selectCate);
         $('[data-role="cate"]').on('click', checkCate);
+        $('#add-post').on('keyup',previewPost);
     }
 });

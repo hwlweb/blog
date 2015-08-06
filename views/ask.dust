@@ -4,6 +4,16 @@
 
 {<body}
 	<div class="container body-wrap">
+		<div class="search-bar-box clearfix" style="display:none;">
+			<div class="input-group search-bar">
+				<input type="text" class="form-control" placeholder="输入文章名称">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Go!</button>
+				</span>
+			</div>
+			<div class="creat-new navbar-right">{@eq key=user value="hwlweb@163.com"}<a href="/add_article" class="btn btn-info">发表</a>{/eq}</div>
+		</div>
+
 		<div class="banner-wrap clearfix">
 			<div class="col-lg-3">
 				<div class="our-play">

@@ -4,6 +4,7 @@ var router = require('koa-router');
 var home = require('../controls/home');
 var login = require('../controls/login');
 var Article = require('../controls/article');
+var Ask = require('../controls/ask');
 var User = require('../controls/user');
 var Category = require('../controls/category')
 
@@ -11,6 +12,9 @@ module.exports = function (app) {
     app.use(router(app));
 
     app.get('/',Article.list);
+    app.get('/index',Article.list);
+    app.get('/post',Article.list);
+    app.get('/ask',Article.list);
 
     //article
     app.get('/add_article',Article.addArticle);
@@ -27,8 +31,9 @@ module.exports = function (app) {
     app.post('/loginIn', User.loginIn);
     app.get('/login_out', User.loginOut);
 
-    //category
-    app.get('/category/:category', Category.searchCategory);
+    //post
+    app.get('/article/:article', Category.searchCategory);
+
 };
 
 

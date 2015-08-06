@@ -1,7 +1,7 @@
 {>"views/layout.dust" /}
 
 {<body}
-  <div class="container">
+  <div class="container body-wrap">
 	  <ol class="breadcrumb">
 			<li><a href="/">首页</a></li>
 			<li class="active">{post.title}</li>
@@ -9,7 +9,7 @@
 	  <div class="article-main">
 		  <h1 class="article-title">
 		  {post.title}
-		  <p class="modify-date"><span class="glyphicon glyphicon-user"></span> {session.nikoname}&nbsp;&nbsp;&nbsp;最后编辑: {post.created_at} {@eq key=user value="hwlweb@163.com"}&nbsp;<a href="/post/{post._id}/edit">编辑</a>&nbsp;&nbsp;<a href="/post/{post._id}/delete">删除</a>{/eq}</p>
+		  <p class="modify-date"><span class="glyphicon glyphicon-user"></span> {session.nikoname}&nbsp; {post.created_at} {@eq key=user value="hwlweb@163.com"}&nbsp;<a href="/post/{post._id}/edit">编辑</a>&nbsp;&nbsp;<a href="/post/{post._id}/delete">删除</a>{/eq}</p>
 		  </h1>
 		  <p>{post.body|s}</p>
       </div>

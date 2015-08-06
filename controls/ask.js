@@ -4,18 +4,17 @@ var categoryModules = require('../modules/categories');
 var Categories = require('../config/categories');
 var ArticleCate = require('../config/article');
 
-module.exports.searchCategory = function *searchCategory() {
+module.exports.Home = function *searchCategory() {
     var app = this;
+    var category = this.params.post;
     var article = this.params.article;
-    var list = yield categoryModules.list({cate:article}, app);
+    var list = yield categoryModules.list({cate:category}, app);
 
-    yield app.render('./article', {
+    yield app.render('./category/category_article_list', {
         posts: list,
         categories: Categories,
         session: app.session,
-        user:app.session.user,
-        current: 'post',
-        articleCate: ArticleCate,
-        article: article || 'all'
+        current: category,
+        article: article
     });
 };

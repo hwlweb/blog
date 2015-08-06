@@ -2,19 +2,16 @@
 
 module.exports = [
     {
-        name: '首页',
-        href: '/index',
-        nikoname: 'index'
+        name: '前端',
+        href: '/article/前端'
     },
     {
-        name: '文章',
-        href: '/post',
-        nikoname: 'post'
+        name: 'NodeJs',
+        href: '/article/NodeJs'
     },
     {
-        name: '问答',
-        href: '/ask',
-        nikoname: 'ask'
+        name: 'MongoDB',
+        href: '/article/MongoDB'
     }
     //{
     //    name: '专题',
