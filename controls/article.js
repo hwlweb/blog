@@ -119,3 +119,21 @@ module.exports.remove = function *remove(id) {
     app.redirect('/post');
 };
 
+module.exports.search = function *search(){
+    var app = this;
+    var post = yield parse(this);
+    var postList = yield articleModules.search(post,app);
+console.log(postList.length);
+    yield app.render('search', {
+        posts: postList,
+        categories: Categories,
+        session:app.session,
+        user:app.session.user,
+        current: 'post',
+        articleCate: ArticleCate,
+        article: 'all',
+        searchTxt: post.searchTxt,
+        length: postList.length
+    });
+}
+

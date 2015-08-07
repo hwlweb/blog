@@ -5,15 +5,16 @@
 {<body}
 	<div class="container body-wrap">
 	    <div class="search-bar-box clearfix">
-            <div class="input-group search-bar">
-                <input type="text" class="form-control" placeholder="输入文章名称">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
+	    	<form action="/search" method="post">
+				<div class="input-group search-bar">
+				<input type="text" class="form-control" placeholder="输入文章名称" name="searchTxt">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">Go!</button>
+				</span>
             </div>
+             </form>
             <div class="creat-new navbar-right">{@eq key=user value="hwlweb@163.com"}<a href="/add_article" class="btn btn-info">发表</a>{/eq}</div>
         </div>
-		<p style="display:none;">You have <strong>{posts.length}</strong> posts!</p>
 		<div class="col-lg-9">
 			<nav class="navbar navbar-default sub-nav">
 			  	<ul class="nav navbar-nav">

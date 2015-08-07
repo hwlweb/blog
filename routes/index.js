@@ -34,6 +34,9 @@ module.exports = function (app) {
     //post
     app.get('/article/:article', Category.searchCategory);
 
+    //search
+    app.post('/search', Article.search);
+
 };
 
 

@@ -40,7 +40,7 @@ var formart = function(postList,isList){
             var body = postList[i].body;
             if(body){
                 if(isList){
-                    postList[i].body = marked(body).substring(0,200);
+                    postList[i].body = marked(body).substring(0,220);
                 }else{
                     postList[i].body = marked(body);
                 }
@@ -128,4 +128,20 @@ module.exports.remove = function *(obj, app) {
     var remove = thunkify(collection.remove.bind(collection));
 
     return yield remove(obj);
+}
+
+module.exports.search = function *(obj,app) {
+    var collection = app.mongo.db('niko_wolf_blog').collection('article');
+    var txt = new RegExp(obj.searchTxt,'gi');
+
+    var postList = collection.find({"title": txt}).sort({created_at:-1});
+
+    var list = thunkify(postList.toArray.bind(postList));
+    var postList = yield list();
+
+    if(postList.length > 0){
+        formart(postList,true);
+    }
+
+    return postList;
 }
