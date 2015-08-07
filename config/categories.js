@@ -15,7 +15,22 @@ module.exports = [
         name: '问答',
         href: '/ask',
         nikoname: 'ask'
-    }
+    },
+    //{
+    //    name: '代码墙',
+    //    href: '/ask',
+    //    nikoname: 'ask'
+    //}
+    //{
+    //    name: '圈子',
+    //    href: '/ask',
+    //    nikoname: 'ask'
+    //},
+    //{
+    //    name: '直播间',
+    //    href: '/ask',
+    //    nikoname: 'ask'
+    //}
     //{
     //    name: '专题',
     //    href: '/category/nodeJs'

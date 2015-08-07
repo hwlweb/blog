@@ -8,10 +8,14 @@
 	  </ol>
 	  <div class="article-main">
 		  <h1 class="article-title">
-		  {post.title}
+		  {post.current.title}
 		  <p class="modify-date"><span class="glyphicon glyphicon-user"></span> {session.nikoname}&nbsp; {post.created_at} {@eq key=user value="hwlweb@163.com"}&nbsp;<a href="/post/{post._id}/edit">编辑</a>&nbsp;&nbsp;<a href="/post/{post._id}/delete">删除</a>{/eq}</p>
 		  </h1>
-		  <p>{post.body|s}</p>
+		  <p>{post.current.body|s}</p>
+		  <div class="art-footer clearfix">
+			  上一篇：{#post.prev}<a href="/post/{_id}">{title}</a>{/post.prev}{^post.prev}己经是第一篇了{/post.prev}
+			  <span class="navbar-right">下一篇：{#post.next}<a href="/post/{_id}">{title}</a>{/post.next}{^post.next}没有了{/post.next}</a>
+		  </div>
       </div>
   </div>
 {/body}

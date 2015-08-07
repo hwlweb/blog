@@ -53,6 +53,7 @@ module.exports.detail = function *detail(id) {
     var app = this;
     var id = new ObjectId(this.params.id);
     var post = yield articleModules.show({_id:id}, app);
+    console.log(post.next);
     yield app.render('article/detail', {
         post: post,
         categories: Categories,

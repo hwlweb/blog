@@ -40,7 +40,7 @@ var formart = function(postList,isList){
             var body = postList[i].body;
             if(body){
                 if(isList){
-                    postList[i].body = marked(body).substring(0,300);
+                    postList[i].body = marked(body).substring(0,200);
                 }else{
                     postList[i].body = marked(body);
                 }
@@ -69,7 +69,6 @@ module.exports.insert = function *(obj, app) {
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
     // 把collection的this指针包成一个临时的thunkify对象
     var insert = thunkify(collection.insert.bind(collection));
-
     yield insert(obj);
 }
 
@@ -88,11 +87,29 @@ module.exports.updateById = function *(idObj,postObj, app) {
 }
 
 module.exports.show = function *(obj, app) {
+    var article = {};
     var collection = app.mongo.db('niko_wolf_blog').collection('article');
+
+    var searchId = obj._id;
+    var next = collection.find({_id:{$gt:searchId}}).sort({created_at:1}).limit(1);
+    var prev = collection.find({_id:{$lt:searchId}}).sort({created_at:1}).limit(1);
+    //当前篇
     var show = thunkify(collection.findOne.bind(collection));
     var showObj = yield show(obj);
+    //下一篇
+    var nextThunkify = thunkify(next.toArray.bind(next));
+    var nextObj = yield nextThunkify();
+
+    //下一篇
+    var prevThunkify = thunkify(prev.toArray.bind(prev));
+    var prevObj = yield prevThunkify();
+
     formart(showObj);
-    return showObj;
+    article.current = showObj;
+    article.prev = prevObj;
+    article.next = nextObj;
+
+    return article;
 }
 
 module.exports.list = function *(app) {
