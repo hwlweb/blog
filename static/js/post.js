@@ -31,10 +31,22 @@ define(function (require, exports, module) {
         var html = target.val();
         $('#article-main').html(marked(html));
     }
+    
+    var postComment = function (ev) {
+        alert(0);
+        var commentCon = $('#comment');
+        if($.trim( commentCon.val() ) == ''){
+            $('#post-comment').show();
+        }else{
+            $('#post-comment').hide();
+        }
+    }
+
 
     exports.init = function () {
         $('#submit-btn').on('click', selectCate);
         $('[data-role="cate"]').on('click', checkCate);
         $('#add-post').on('keyup',previewPost);
+        $('#post-comment').on('click', postComment);
     }
 });

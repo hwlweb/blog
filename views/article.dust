@@ -4,6 +4,118 @@
 
 {<body}
 	<div class="container body-wrap">
+		<div class="f2e clearfix">
+			<dl class="col-lg-3">
+				<dt>基础技能-切页面</dt>
+				<dd>Html/css2</dd>
+				<dd>Html5/css3</dd>
+				<dd>Photoshop</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>编程语言</dt>
+				<dd>javascript</dd>
+				<dd>PHP/Python/Perl/Ruby/BashShell</dd>
+				<dd>Nodejs/Flash AS</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>调试工具</dt>
+				<dd>Firebug/Firebuy-lite/Web Inspector</dd>
+				<dd>YSlow/Sumushit</dd>
+				<dd>IEDeveloper ToolBar/IETest</dd>
+				<dd>SuperPreview/JsBeautifer</dd>
+				<dd>Fillder/WireShark/tcpdump</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>开发工具</dt>
+				<dd>Subline Text</dd>
+				<dd>VIM/Aptana/Notepad++/Editplus</dd>
+				<dd>sygWin/svn/git</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>计算机知识储备</dt>
+				<dd>编译原理/计算机网络</dd>
+				<dd>操作系统/算法原理</dd>
+				<dd>软件工程/软件测试原理</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>前端标准/规范</dt>
+				<dd>W3c/DOM/BOM/Xhtml/XML</dd>
+				<dd>JSON/JSONP</dd>
+				<dd>ECMAScript3/ECMAScript5</dd>
+				<dd>ECMAScript6</dd>
+				<dd>CommonJS/AMD</dd>
+				<dd>Http1.1</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>性能</dt>
+				<dd>WebPageTest</dd>
+				<dd>ShowSlow/Yslow/34Rule</dd>
+				<dd>Page Speed</dd>
+				<dd>HttpWatch</dd>
+				<dd>DynaTrace's Ajax</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>编程知识储备</dt>
+				<dd>数据结构/MVC</dd>
+				<dd>面向对象/切面编程</dd>
+				<dd>函数式编程</dd>
+				<dd>javascript设计模式</dd>
+				<dd>javascript编程模式</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>Web服务</dt>
+				<dd>YQL/Company Open Platform</dd>
+				<dd>App Engine/Cloud</dd>
+				<dd>Google open API/Github</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>前端技术社区/会议</dt>
+				<dd>YDN/YUIconf/jsConf</dd>
+				<dd>QConf/volecity</dd>
+				<dd>D2/WebRebuild</dd>
+				<dd>NodeParty/HTML5研案小组</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>移动终端</dt>
+				<dd>JQuery Mobile/html5/css</dd>
+				<dd>iphone/ipad/ios/android</dd>
+				<dd>responsive UI Design</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>安全</dt>
+				<dd>CSRF/XSS</dd>
+				<dd>ADsafe/Caja/FBJS/Sandbox</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>软技能</dt>
+				<dd>知识管理/总结分享</dd>
+				<dd>沟通技巧/团队开发/需求管理/PM</dd>
+				<dd>代码模块化开发/代码版本管理</dd>
+				<dd>交互设计/可用性/可访问性知识<dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>开发流程部署</dt>
+				<dd>JSlint/CSSlint/YUICompressor</dd>
+				<dd>JSMin/TPacker-minifier</dd>
+				<dd>Ant/Make</dd>
+				<dd>JSDoc/YUIDoc</dd>
+				<dd>LAMP</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>前端框架/库</dt>
+				<dd>Jquer/YUI2/YUI3</dd>
+				<dd>Prototype/Mootools/ExtJs</dd>
+				<dd>Smarty/Django/Zend</dd>
+				<dd>YUItest/QUnit/Jasmine</dd>
+				<dd>前端测试/前端MVC</dd>
+			</dl>
+			<dl class="col-lg-3">
+				<dt>浏览器兼容性</dt>
+				<dd>Fucking IE6/7/8</dd>
+				<dd>Firefox3.6/4/5/6/7/8...</dd>
+				<dd>Chrome/Opera/Safari</dd>
+			</dl>
+		</div>
 	    <div class="search-bar-box clearfix">
 	    	<form action="/search" method="post">
 				<div class="input-group search-bar">

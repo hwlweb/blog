@@ -17,6 +17,8 @@
 			  上一篇：{#post.prev}<a href="/post/{_id}">{title}</a>{/post.prev}{^post.prev}己经是第一篇了{/post.prev}
 			  <span class="navbar-right">下一篇：{#post.next}<a href="/post/{_id}">{title}</a>{/post.next}{^post.next}没有了{/post.next}</a>
 		  </div>
+		  <!-- comment -->
+		  {>"views/comment/comment_add" /}
       </div>
   </div>
 {/body}

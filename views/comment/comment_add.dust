@@ -1,0 +1,9 @@
+<div class="comment">
+	<div class="alert alert-warning comment-error" role="alert">
+      	请输入评论的内容
+    </div>
+	<textarea name="content" rows="4" class="form-control editor-content" id="comment" placeholder="写下你的评论…"></textarea>
+	<div class="form-group text-right">
+		<button type="button" class="btn btn-primary" id="post-comment">评论</button>
+	</div>
+</div>

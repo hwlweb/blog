@@ -1,21 +1,46 @@
 "use strtic";
 
 module.exports = [
-    {
-        name: '首页',
-        href: '/index',
-        nikoname: 'index'
-    },
+    //{
+    //    name: '首页',
+    //    href: '/index',
+    //    nikoname: 'index'
+    //},
     {
         name: '文章',
         href: '/post',
         nikoname: 'post'
     },
     {
+        name: '圈子',
+        href: '/post',
+        nikoname: 'share'
+    },
+    {
         name: '问答',
         href: '/ask',
         nikoname: 'ask'
     },
+    {
+        name: 'Coding大赛',
+        href: '/ask',
+        nikoname: 'ask'
+    },
+    {
+        name: '遛码',
+        href: '/ask',
+        nikoname: 'ask'
+    },
+    {
+        name: '前端评级',
+        href: '/ask',
+        nikoname: 'ask'
+    },
+    {
+        name: '调查问卷',
+        href: '/ask',
+        nikoname: 'ask'
+    }
     //{
     //    name: '代码墙',
     //    href: '/ask',

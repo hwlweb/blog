@@ -6,7 +6,8 @@ var login = require('../controls/login');
 var Article = require('../controls/article');
 var Ask = require('../controls/ask');
 var User = require('../controls/user');
-var Category = require('../controls/category')
+var Category = require('../controls/category');
+var Comment = require('../controls/comment');
 
 module.exports = function (app) {
     app.use(router(app));
@@ -36,6 +37,9 @@ module.exports = function (app) {
 
     //search
     app.post('/search', Article.search);
+
+    //comment
+    app.post('/comment/add', Comment.add);
 
 };
 

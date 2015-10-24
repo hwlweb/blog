@@ -14,7 +14,7 @@ var logger = require('koa-logger');
 app.use(logger());
 
 /* static server */
-app.use(Static(Path.resolve(__dirname, './static')));
+app.use(Static(Path.resolve(__dirname, 'static')));
 
 /*session*/
 app.keys = ['hwl wolf'];
