@@ -9,6 +9,7 @@
      <script src="/js/lib/jquery-ui-1.11.3.js"></script>
      <script src="/bootstrap/js/bootstrap.min.js"></script>
      <script src="/js/lib/sea.js"></script>
+     <meta property="qc:admins" content="36532370176045434763757" />
      {+headscript}{/headscript}
 
      <link rel="shortcut icon" type="image/x-icon" href="/bitbug_favicon.ico" />
